@@ -16,21 +16,15 @@ public class Program {
 		list.add(new Product("Notebook", 1200.00));
 		list.add(new Product("Tablet", 450.00));
 
-		/* COMO A IMPLEMENTAÇÃO DO COMPARATOR TEM APENAS UMA LINHA
-		 * POSSO SIMPLIFICAR O CODIGO PARA APENAS UMA LINHA TBM 
-		 * AO INVÉS DISSO:
-		 
-		Comparator<Product> comp = (p1, p2) -> {
-			return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-		};
+		// COLOCANDO A EXPRESSÃO LAMBDA COMO ARGUMENTO DIRETO DO METHODS SORT
+		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
 		
-		POSSO FAZER COMO NO CODIGO ABAIXO:		
-		*/
-		
-		//IMPLEMENTANDO A INTERFACE COMPARATOR EM APENAS UMA LINHA COM AS EXPRESSÕES LAMBDA
-		Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-
-		list.sort(comp);
+		/*
+		 * O CÓDIGO ACIMA É UMA IMPLEMENTAÇÃO DA INFERFADE COMPARATOR UTILIZANDO UMA EXPRESSÃO LAMBDA 
+		 * E COMO A IMPLEMENTAÇÃO DA EXPRESSÃO TEM APENAS UMA LINHA
+		 * PODE-SE COLOCAR A EXPRESSÃO COMO ARGUMENTO DENTRO DO METODO SORT
+		 * SIMPLIFICANDO AINDA MAIS O CÓDIGO.  
+		 */
 
 		for (Product p : list) {
 			System.out.println(p);
