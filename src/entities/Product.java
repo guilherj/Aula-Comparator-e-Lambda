@@ -1,6 +1,8 @@
 package entities;
 
-public class Product implements Comparable<Product> {
+public class Product{
+	
+	// AGORA IREI COMPARAR OS OBJETOS UTILIZANDO O DEFAULT METHODS "SORT" DA PROPRIA LIST EM PROGRAM.
 	
 	private String name;
 	private Double price;
@@ -38,14 +40,7 @@ public class Product implements Comparable<Product> {
 	}
 
 
-	// COMPARA UM PRODUTO POR OUTRO PELO NOME IGNORANDO LETRAS MAIUSCULAS E MINUSCULAS , COLOCANDO AS LETRAS TODAS EM MAIUSCULAS COM O 
-	// toUpperCase
-	@Override
-	public int compareTo(Product o) {
-		return name.toUpperCase().compareTo(getName().toUpperCase());
-	}
-	
-	
+		
 	
 	
 
