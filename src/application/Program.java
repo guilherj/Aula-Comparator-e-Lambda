@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import entities.Product;
@@ -16,13 +17,24 @@ public class Program {
 		list.add(new Product("Notebook", 1200.00));
 		list.add(new Product("Tablet", 450.00));
 		
+		/* CRIANDO UMA SINTAXE DE CLASSE ANÔNIMA DENTRO DE PROGRAM 
+		 * PARA ORGANIZAR A LIST DE PRODUCT SEM CRIAR UMA CLASSE QUE IMPLEMENTA
+		 * A INTERFACE COMPARATOR
+		 */
+		Comparator <Product> comp = new Comparator<Product>() {
+
+			@Override
+			public int compare(Product p1, Product p2) {
+				return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+			}
+			
+		};
 		
-		/* CRIANDO UMA INSTANCIA DA CLASSE MyComparator PARA COMPARAR OS OBJETOS DO TIPO PRODUCT
-		 * E ORGANIZANDO A LIST COM O DEFAULT METHODS "SORT" DA PROPRIA LIST */
-		list.sort(new MyComparator()); 
-		
-		// PARA ESSE METODO FUNCIONAR DEVE-SE CRIAR UMA CLASSE QUE IMPLEMENTA A INFERFACE COMPARATOR 
-		
+		// CHAMANDO O OBJETO comp QUE É UMA INSTANCIA DA CLASSE ANÔNIMA E QUE TEM A FUNÇÃO 
+		// COMPARE IMPLEMENTADA.
+		list.sort(comp);
+
+				
 		for(Product p : list) {
 			System.out.println(p);
 		}
